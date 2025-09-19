@@ -35,7 +35,7 @@ drug_database = {
 
 #UI
 st.title("Symptom-Based Drug Recommendation DSS")
-st.markdown("### A Prototype for MAT5024")
+st.markdown("### Protoype for DSS")
 
 
 disease_list = list(drug_database.keys())
@@ -82,4 +82,5 @@ if recommend_button:
     if final_recommendation is None:
         st.error("No suitable alternative medication found in the database. Please consult a doctor.")
     
-    st.info("Disclaimer: This is a prototype DSS for academic purposes only. Always consult a healthcare professional before taking any medication.")
+    st.info("Disclaimer: Well this is still a working prototype,do consult a doctor tho,cant have em running outta buisness.")
+
