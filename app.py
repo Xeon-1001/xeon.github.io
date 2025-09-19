@@ -35,15 +35,15 @@ drug_database = {
 
 #UI
 st.title("Symptom-Based Drug Recommendation DSS")
-st.markdown("### Protoype for DSS")
+st.markdown("### Protoype model")
 
 
 disease_list = list(drug_database.keys())
 
 # User inputs
-selected_disease = st.selectbox("Step 1: Select the diagnosed disease", options=disease_list)
+selected_disease = st.selectbox("Select the diagnosed disease: ", options=disease_list)
 user_condition = st.radio(
-    "Step 2: Select your personal profile",
+    "Select your personal profile: ",
     options=["Normal", "Pregnant", "Alcohol Consumer"],
     horizontal=True
 )
@@ -83,4 +83,5 @@ if recommend_button:
         st.error("No suitable alternative medication found in the database. Please consult a doctor.")
     
     st.info("Disclaimer: Well this is still a working prototype,do consult a doctor tho,cant have em running outta buisness.")
+
 
