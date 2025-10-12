@@ -77,16 +77,34 @@ if recommend_button:
     
     st.subheader('📝 Recommendation Result')
 
-    col1, col2 = st.columns([1, 4])
+    # Create a centered layout using three columns
+    left_col, mid_col, right_col = st.columns([1, 3, 1])
     
-    
-    with col1:
-        st.success(f"**Suggested Medication:**")
-        st.markdown(f"<h3 style='text-align: center; color: #33FFB8;'>{prediction[0]}</h3>", unsafe_allow_html=True)
-        st.info(f"**Profile:** {selected_condition.capitalize()} | **Diagnosis:** {selected_symptom}")
+    with mid_col:
+        # Use st.markdown to create a custom "card"
+        st.markdown(
+            f"""
+            <div style="
+                border: 1px solid #262730;
+                border-radius: 10px;
+                padding: 25px;
+                text-align: center;
+                background-color: #0E1117;
+            ">
+                <p style="font-size: 1rem; color: #FAFAFA;">Suggested Medication:</p>
+                <h2 style="color: #33FFB8; margin-top: -10px;">{prediction[0]}</h2>
+                <hr style="border-color: #262730;">
+                <p style="font-size: 0.9rem; color: #A0A0A0;">
+                    <b>Profile:</b> {selected_condition.capitalize()} | <b>Diagnosis:</b> {selected_symptom}
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
+    # Disclaimer remains full-width below the centered card
     with st.expander("⚠️ Important Disclaimer"):
-        st.warning("This is a prototype DSS,dont let em docs run out of job.")
+        st.warning("This is a prototype DSS. Always consult a qualified healthcare professional for medical advice.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
 
