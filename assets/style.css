@@ -1,5 +1,17 @@
 /* assets/style.css */
+/* New Background Animation Styling (Modified for non-transparent GIF) */
+.stApp {
+    /* Your existing background-image, background-size, etc. */
+    background-image: url("PASTE_YOUR_BASE64_CODE_HERE");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 
+    /* Try to blend the white background */
+    background-blend-mode: luminosity; /* or screen, multiply, hard-light, soft-light */
+    filter: brightness(0.7) contrast(1.5); /* Adjust these values */
+}
 /* Add a subtle gradient to the background */
 body {
     background-image: linear-gradient(to right top, #051937, #001c4a, #001e5d, #002071, #002085);
