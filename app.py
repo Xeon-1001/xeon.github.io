@@ -3,8 +3,17 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
+import requests
+from streamlit_lottie import st_lottie
+
 
 # 1. Aesthetics
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -41,6 +50,10 @@ st.markdown("This system suggests medication based on your profile and diagnosis
 
 # Move all the controls into a sidebar
 with st.sidebar:
+    lottie_url = "https://lottie.host/e1664778-ef1e-47f2-a5c2-77689af60fb1/Lbw3J2Y5j2.json"
+    lottie_json = load_lottieurl(lottie_url)
+    if lottie_json:
+        st_lottie(lottie_json, speed=1, height=150, key="lottie_animation")
     st.header("👤 Your Details")
     
     selected_symptom = st.selectbox(
@@ -84,6 +97,7 @@ if recommend_button:
         """)
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
