@@ -79,16 +79,15 @@ if recommend_button:
 
     col1, col2 = st.columns([1, 4])
     
-    with col1:
-        st.markdown("<h1 style='text-align: center; font-size: 5rem;'>💊</h1>", unsafe_allow_html=True)
     
-    with col2:
+    with col1:
         st.success(f"**Suggested Medication:**")
-        st.markdown(f"<h3 style='text-align: left; color: #33FFB8;'>{prediction[0]}</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='text-align: center; color: #33FFB8;'>{prediction[0]}</h3>", unsafe_allow_html=True)
         st.info(f"**Profile:** {selected_condition.capitalize()} | **Diagnosis:** {selected_symptom}")
 
     with st.expander("⚠️ Important Disclaimer"):
         st.warning("This is a prototype DSS,dont let em docs run out of job.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
