@@ -4,19 +4,19 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 
-#1 Aesthetic
+# 1. Aesthetics
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
 
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
     layout="centered"
-
-local_css("assets/style.css")    
 )
+
+# THEN, call local_css
+local_css("assets/style.css")
 
 # --- 2. DATA LOADING AND MODEL TRAINING (No changes here) ---
 @st.cache_data
@@ -76,4 +76,5 @@ if recommend_button:
         """)
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
