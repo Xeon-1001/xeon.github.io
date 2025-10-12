@@ -6,8 +6,7 @@ import numpy as np
 import requests
 from streamlit_lottie import st_lottie
 
-
-# 1. Aesthetics
+# --- 1. AESTHETICS & HELPERS ---
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -18,16 +17,16 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
+# --- PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
     layout="centered"
 )
 
-# THEN, call local_css
 local_css("assets/style.css")
 
-# --- 2. DATA LOADING AND MODEL TRAINING (No changes here) ---
+# --- 2. DATA LOADING AND MODEL TRAINING ---
 @st.cache_data
 def load_and_train_model():
     df = pd.read_csv('syndata.csv')
@@ -43,17 +42,17 @@ def load_and_train_model():
 
 model, encoder, symptom_list, condition_list = load_and_train_model()
 
-
-# --- 3. USER INTERFACE (This is the updated section) ---
+# --- 3. USER INTERFACE ---
 st.title('Symptom-Based Drug Recommendation DSS')
 st.markdown("This system suggests medication based on your profile and diagnosis.")
 
-# Move all the controls into a sidebar
+# --- SIDEBAR ---
 with st.sidebar:
     lottie_url = "https://lottie.host/e1664778-ef1e-47f2-a5c2-77689af60fb1/Lbw3J2Y5j2.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
         st_lottie(lottie_json, speed=1, height=150, key="lottie_animation")
+
     st.header("👤 Your Details")
     
     selected_symptom = st.selectbox(
@@ -67,20 +66,17 @@ with st.sidebar:
         horizontal=True
     )
 
-    st.markdown("---") # Visual separator
+    st.markdown("---")
     recommend_button = st.button("Get Recommendation", type="primary")
-
 
 # --- 4. PREDICTION AND OUTPUT ---
 if recommend_button:
-    # --- (Your prediction logic stays the same) ---
     user_input = pd.DataFrame({'Condition': [selected_condition], 'Symptom': [selected_symptom]})
     user_input_encoded = encoder.transform(user_input)
     prediction = model.predict(user_input_encoded)
     
     st.subheader('📝 Recommendation Result')
 
-    # Create a card-like layout
     col1, col2 = st.columns([1, 4])
     
     with col1:
@@ -92,14 +88,6 @@ if recommend_button:
         st.info(f"**Profile:** {selected_condition.capitalize()} | **Diagnosis:** {selected_symptom}")
 
     with st.expander("⚠️ Important Disclaimer"):
-        st.warning("""
-        This is only a DSS. Dont let em docs run out of job.
-        """)
+        st.warning("This is a prototype DSS,dont let em docs run out of job.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
-
-
-
-
-
-
