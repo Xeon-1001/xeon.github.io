@@ -48,7 +48,7 @@ st.markdown("This system suggests medication based on your profile and diagnosis
 
 # --- SIDEBAR ---
 with st.sidebar:
-    lottie_url = "https://lottie.host/e1664778-ef1e-47f2-a5c2-77689af60fb1/Lbw3J2Y5j2.json"
+    lottie_url = "https://raw.githubusercontent.com/Xeon-1001/xeon.github.io/refs/heads/main/assets/animation.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
         st_lottie(lottie_json, speed=1, height=150, key="lottie_animation")
@@ -91,3 +91,4 @@ if recommend_button:
         st.warning("This is a prototype DSS,dont let em docs run out of job.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
