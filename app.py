@@ -50,7 +50,7 @@ st.markdown("This system suggests medication based on your profile and diagnosis
 
 # Move all the controls into a sidebar
 with st.sidebar:
-    lottie_url = "https://lottie.host/e1664778-ef1e-47f2-a5c2-77689af60fb1/Lbw3J2Y5j2.json"
+    lottie_url = "https://lottie.host/e1664778-ef1e-47f2-a5c2-77689af60fb1.json"
     lottie_json = load_lottieurl(lottie_url)
     if lottie_json:
         st_lottie(lottie_json, speed=1, height=150, key="lottie_animation")
@@ -97,6 +97,7 @@ if recommend_button:
         """)
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
