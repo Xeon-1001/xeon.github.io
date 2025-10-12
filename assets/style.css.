@@ -1,0 +1,42 @@
+/* assets/style.css */
+
+/* Change the sidebar background and text color */
+[data-testid="stSidebar"] {
+    background-color: #10101A;
+    border-right: 2px solid #FF4B4B;
+}
+
+/* Style the title in the sidebar */
+[data-testid="stSidebar"] h2 {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* Style the buttons */
+.stButton > button {
+    background-color: #FF4B4B;
+    color: white;
+    border-radius: 25px;
+    border: 2px solid #FF4B4B;
+    font-weight: bold;
+    transition: all 0.2s; /* Smooth transition for hover */
+}
+
+.stButton > button:hover {
+    background-color: transparent;
+    color: #FF4B4B;
+}
+
+/* Style the green success box (recommendation result) */
+[data-testid="stSuccess"] {
+    background-color: rgba(76, 175, 80, 0.15); /* Lighter, transparent green */
+    border-left: 5px solid #4CAF50;
+    border-radius: 8px;
+}
+
+/* Add a cool glowing effect to the main title */
+h1 {
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
+}
