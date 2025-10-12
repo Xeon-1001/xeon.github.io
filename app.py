@@ -4,12 +4,18 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 
-# --- 1. PAGE CONFIG (Add this at the top) ---
-# This MUST be the first Streamlit command in your app
+#1 Aesthetic
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
     layout="centered"
+
+local_css("assets/style.css")    
 )
 
 # --- 2. DATA LOADING AND MODEL TRAINING (No changes here) ---
@@ -66,9 +72,8 @@ if recommend_button:
 
     with st.expander("⚠️ Important Disclaimer"):
         st.warning("""
-        This is a prototype DSS. Always consult a qualified healthcare professional 
-        for any medical advice, diagnosis, or treatment.
+        This is only a DSS. Dont let em docs run out of job.
         """)
 else:
-    # This message will show on the main page before the button is clicked
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
