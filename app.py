@@ -1,4 +1,12 @@
 import streamlit as st
+
+st.set_page_config(
+    page_title="Drug Recommendation DSS",
+    page_icon="💊",
+    layout="centered" 
+)
+
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
@@ -67,3 +75,4 @@ if recommend_button:
 else:
    
     st.info("Please select your condition and profile, then click 'Get Recommendation'.")
+
