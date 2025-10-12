@@ -44,7 +44,6 @@ model, encoder, symptom_list, condition_list = load_and_train_model()
 
 # --- 3. USER INTERFACE ---
 st.title('Symptom-Based Drug Recommendation DSS')
-st.markdown("This system suggests medication based on your profile and diagnosis.")
 
 # --- SIDEBAR ---
 with st.sidebar:
@@ -107,5 +106,6 @@ if recommend_button:
         st.warning("This is a prototype DSS. Always consult a qualified healthcare professional for medical advice.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
