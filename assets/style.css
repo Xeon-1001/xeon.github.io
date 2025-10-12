@@ -1,40 +1,33 @@
 /* assets/style.css */
 
-/* Change the sidebar background and text color */
+/* Add a subtle gradient to the background */
+body {
+    background-image: linear-gradient(to right top, #051937, #001c4a, #001e5d, #002071, #002085);
+}
+
+/* Make the sidebar feel more modern */
 [data-testid="stSidebar"] {
-    background-color: #10101A;
+    background-color: rgba(0,0,0,0.2); /* Semi-transparent */
     border-right: 2px solid #FF4B4B;
 }
 
-/* Style the title in the sidebar */
-[data-testid="stSidebar"] h2 {
-    color: #FFFFFF;
-    text-align: center;
-}
-
-/* Style the buttons */
+/* Improve the button with a shadow and transform on hover */
 .stButton > button {
     background-color: #FF4B4B;
     color: white;
     border-radius: 25px;
-    border: 2px solid #FF4B4B;
+    border: 1px solid #FF4B4B;
     font-weight: bold;
-    transition: all 0.2s; /* Smooth transition for hover */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
 }
 
 .stButton > button:hover {
-    background-color: transparent;
-    color: #FF4B4B;
+    transform: translateY(-3px); /* Make button "lift" on hover */
+    box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
 }
 
-/* Style the green success box (recommendation result) */
-[data-testid="stSuccess"] {
-    background-color: rgba(76, 175, 80, 0.15); /* Lighter, transparent green */
-    border-left: 5px solid #4CAF50;
-    border-radius: 8px;
-}
-
-/* Add a cool glowing effect to the main title */
+/* Keep your glowing title effect */
 h1 {
   text-align: center;
   color: #FFFFFF;
