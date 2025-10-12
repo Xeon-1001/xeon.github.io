@@ -60,15 +60,23 @@ with st.sidebar:
 
 # --- 4. PREDICTION AND OUTPUT ---
 if recommend_button:
-    user_input = pd.DataFrame({
-        'Condition': [selected_condition],
-        'Symptom': [selected_symptom]
-    })
+    # --- (Your prediction logic stays the same) ---
+    user_input = pd.DataFrame({'Condition': [selected_condition], 'Symptom': [selected_symptom]})
     user_input_encoded = encoder.transform(user_input)
     prediction = model.predict(user_input_encoded)
     
     st.subheader('📝 Recommendation Result')
-    st.success(f"**Based on your inputs, the suggested medication is:** `{prediction[0]}`")
+
+    # Create a card-like layout
+    col1, col2 = st.columns([1, 4])
+    
+    with col1:
+        st.markdown("<h1 style='text-align: center; font-size: 5rem;'>💊</h1>", unsafe_allow_html=True)
+    
+    with col2:
+        st.success(f"**Suggested Medication:**")
+        st.markdown(f"<h3 style='text-align: left; color: #33FFB8;'>{prediction[0]}</h3>", unsafe_allow_html=True)
+        st.info(f"**Profile:** {selected_condition.capitalize()} | **Diagnosis:** {selected_symptom}")
 
     with st.expander("⚠️ Important Disclaimer"):
         st.warning("""
@@ -76,5 +84,6 @@ if recommend_button:
         """)
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
