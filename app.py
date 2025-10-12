@@ -103,9 +103,10 @@ if recommend_button:
 
     # Disclaimer remains full-width below the centered card
     with st.expander("⚠️ Important Disclaimer"):
-        st.warning("This is a prototype DSS. Always consult a qualified healthcare professional for medical advice.")
+        st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
