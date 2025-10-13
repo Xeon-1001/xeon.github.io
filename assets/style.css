@@ -30,10 +30,11 @@ body {
    ================================ */
 
 [data-testid="stSidebar"] {
-  background-color: rgba(0, 0, 0, 0.45); /* semi-transparent black */
+  background-color: #0E1117; /* Streamlit's default dark background color */
+  
   border-right: 2px solid #FF4B4B;
-  backdrop-filter: blur(10px); /* adds a frosted-glass effect */
-  box-shadow: 2px 0 20px rgba(255, 75, 75, 0.25); /* soft glow on edge */
+  box-shadow: 2px 0 20px rgba(255, 75, 75, 0.25);
+
   
   /* --- ADD THIS LINE --- */
   z-index: 1; /* This forces the sidebar to a higher layer */
