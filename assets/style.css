@@ -2,6 +2,11 @@
 /* Add a subtle gradient to the background */
 
 /* Make the sidebar feel more modern */
+/* Add this to force content to the top */
+[data-testid="stAppViewContainer"] > .main {
+    justify-content: flex-start;
+}
+
 [data-testid="stSidebar"] {
     background-color: rgba(0,0,0,0); /* Semi-transparent */
     border-right: 2px solid #FF4B4B;
