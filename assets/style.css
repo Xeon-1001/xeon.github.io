@@ -85,11 +85,17 @@ h1 {
    Dropdown Box Styling
    ================================ */
 
+/* This styles the main box of the dropdown */
 [data-testid="stSelectbox"] > div {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #ff4b4b;
-    border-radius: 10px;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    border: 1px solid #ff4b4b;             /* Glowing red border */
+    border-radius: 10px;                   /* Rounded corners */
+}
+
+/* This specifically targets the text of the SELECTED item inside the box */
+[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+    background-color: transparent !important; /* Ensure no conflicting background */
+    color: #FAFAFA !important;                /* Force the text to be white */
 }
 /* ================================
    Dropdown Menu (Option List) Styling
