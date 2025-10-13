@@ -84,3 +84,18 @@ h1 {
     border-radius: 10px;
     color: white;
 }
+/* ================================
+   Disclaimer & Alert Box Styling
+   ================================ */
+
+/* Targets the warning box used for the disclaimer */
+[data-testid="stAlert"] {
+    background-color: #2e2d00;    /* A very dark, muted yellow/olive */
+    border: 1px solid #a89f32;    /* A slightly brighter border for definition */
+    border-radius: 8px;           /* Rounded corners */
+}
+
+/* Ensures the text inside the warning box is white */
+[data-testid="stAlert"] p {
+    color: #FAFAFA !important; /* Use !important to override Streamlit's default text color */
+}
