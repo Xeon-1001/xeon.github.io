@@ -54,7 +54,7 @@ st.set_page_config(
 
 # --- APPLY AESTHETICS ---
 
-set_bg_from_local("assets/p1.gif")
+set_bg_from_local("assets/P1.gif")
 local_css("assets/style.css")
 
 
@@ -138,6 +138,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
