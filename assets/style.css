@@ -37,7 +37,14 @@ body {
     transform: translateX(0) !important;
     transition: transform 300ms ease-in-out 0s, min-width 300ms ease-in-out 0s;
 }
+/* ================================
+   Selected Item Display Styling
+   ================================ */
 
+/* Targets the text of the selected option in the selectbox */
+[data-testid="stSelectbox"] p {
+    color: #FAFAFA !important; /* Forces the text color to be off-white */
+}
 /* ================================
    Button Styling
    ================================ */
