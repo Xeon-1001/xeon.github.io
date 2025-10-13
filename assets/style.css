@@ -1,4 +1,4 @@
-/* assets/style.css */
+/* assets/style.css - CORRECTED VERSION */
 
 /* --- CORE LAYOUT --- */
 [data-testid="stHeader"] {
@@ -10,6 +10,12 @@
 }
 
 [data-testid="stSidebar"] {
+    /* This ensures the sidebar is always visible and has a width */
+    visibility: visible !important;
+    width: 304px !important; /* Streamlit's default width */
+    min-width: 304px !important;
+
+    /* Styling */
     background-color: rgba(14, 17, 23, 0.85);
     border-right: 2px solid #FF4B4B;
 }
