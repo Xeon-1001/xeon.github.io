@@ -1,8 +1,6 @@
 /* assets/style.css */
-/* Add a subtle gradient to the background */
 
-/* Make the sidebar feel more modern */
-/* Add this to force content to the top */
+/* --- CORE LAYOUT --- */
 [data-testid="stHeader"] {
     display: none !important;
 }
@@ -12,11 +10,11 @@
 }
 
 [data-testid="stSidebar"] {
-    /* Use a dark, semi-transparent background instead of fully transparent */
-    background-color: rgba(14, 17, 23, 0.85); 
+    background-color: rgba(14, 17, 23, 0.85);
     border-right: 2px solid #FF4B4B;
+}
 
-/* Improve the button with a shadow and transform on hover */
+/* --- WIDGETS --- */
 .stButton > button {
     background-color: #FF4B4B;
     color: white;
@@ -28,48 +26,43 @@
 }
 
 .stButton > button:hover {
-    transform: translateY(-3px); /* Make button "lift" on hover */
+    transform: translateY(-3px);
     box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
 }
 
-/* Keep your glowing title effect */
 h1 {
   text-align: center;
   color: #FFFFFF;
   text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
 }
 
-/* Style for the main dropdown box */
+/* --- DROPDOWN (SELECTBOX) STYLES --- */
 [data-testid="stSelectbox"] > div {
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    border: 1px solid #FF4B4B;           /* Glowing border */
-    border-radius: 10px;                   /* Rounded corners */
-    color: white;                          /* Text color */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #FF4B4B;
+    border-radius: 10px;
+    color: white;
 }
 
-/* Change color of the dropdown arrow */
 [data-testid="stSelectbox"] svg {
     fill: #FF4B4B;
 }
 
-/* Style for the popup menu that appears on click */
+[data-testid="stSelectbox"] p {
+    color: white !important;
+}
+
 [data-baseweb="popover"] ul {
-    background-color: #0E1117;           /* Match your app's background */
+    background-color: #0E1117;
     border: 1px solid #FF4B4B;
     border-radius: 10px;
 }
 
-/* Style for individual options in the list */
 [data-baseweb="popover"] ul li {
     color: white;
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Style for when you hover over an option */
 [data-baseweb="popover"] ul li:hover {
-    background-color: #283046;           /* Use your secondary background color */
-}
-/* Fix for invisible selected text in the dropdown */
-[data-testid="stSelectbox"] p {
-    color: white !important; /* Force the text to be white */
+    background-color: #283046;
 }
