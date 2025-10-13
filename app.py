@@ -5,6 +5,7 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import requests
 from streamlit_lottie import st_lottie
+import base64
 
 # --- 1. AESTHETICS & HELPERS ---
 def local_css(file_name):
@@ -17,20 +18,26 @@ def load_lottieurl(url: str):
         return None
     return r.json()
     
-def set_bg_from_url(url):
+@st.cache_data
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_bg_from_local(file_path):
     """
-    Sets the background of the Streamlit app to an image from a URL.
+    Sets the background of the Streamlit app to a local image.
     """
+    bin_str = get_base64_of_bin_file(file_path)
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("{url}") !important;
+        background-image: url("data:image/gif;base64,{bin_str}") !important;
         background-size: cover;
         background-position: top left;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
-    /* This makes the header transparent */
     [data-testid="stHeader"] {{
         background: rgba(0,0,0,0);
     }}
@@ -47,8 +54,7 @@ st.set_page_config(
 
 # --- APPLY AESTHETICS ---
 
-gif_url = "https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif"
-set_bg_from_url(gif_url)
+set_bg_from_local("assets/p1.gif")
 local_css("assets/style.css")
 
 
@@ -132,6 +138,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
