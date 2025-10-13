@@ -1,72 +1,69 @@
-/* assets/style.css */
-/* Add a subtle gradient to the background */
+/* assets/style.css - FINAL CORRECTED VERSION */
 
-/* Make the sidebar feel more modern */
-/* Add this to force content to the top */
+/* --- CORE LAYOUT --- */
 [data-testid="stHeader"] {
-    display: none !important;
+    display: none !important;
 }
 
 [data-testid="stAppViewContainer"] > .main {
-    justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 [data-testid="stSidebar"] {
-    background-color: rgba(0,0,0,0); /* Semi-transparent */
-    border-right: 2px solid #FF4B4B;
+    /* Use a dark, semi-transparent background to keep the expand button visible */
+    background-color: rgba(14, 17, 23, 0.85);
+    border-right: 2px solid #FF4B4B;
 }
 
-/* Improve the button with a shadow and transform on hover */
+/* --- WIDGETS --- */
 .stButton > button {
-    background-color: #FF4B4B;
-    color: white;
-    border-radius: 25px;
-    border: 1px solid #FF4B4B;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
+    background-color: #FF4B4B;
+    color: white;
+    border-radius: 25px;
+    border: 1px solid #FF4B4B;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
 }
 
 .stButton > button:hover {
-    transform: translateY(-3px); /* Make button "lift" on hover */
-    box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
 }
 
-/* Keep your glowing title effect */
 h1 {
-  text-align: center;
-  color: #FFFFFF;
-  text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
 }
-/* --- Style the dropdown menu (selectbox) --- */
 
-/* Style for the main dropdown box */
+/* --- DROPDOWN (SELECTBOX) STYLES --- */
 [data-testid="stSelectbox"] > div {
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    border: 1px solid #FF4B4B;           /* Glowing border */
-    border-radius: 10px;                   /* Rounded corners */
-    color: white;                          /* Text color */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #FF4B4B;
+    border-radius: 10px;
 }
 
-/* Change color of the dropdown arrow */
 [data-testid="stSelectbox"] svg {
-    fill: #FF4B4B;
+    fill: #FF4B4B;
 }
 
-/* Style for the popup menu that appears on click */
+/* This rule makes the selected text visible */
+[data-testid="stSelectbox"] p {
+    color: white !important;
+}
+
 [data-baseweb="popover"] ul {
-    background-color: #0E1117;           /* Match your app's background */
-    border: 1px solid #FF4B4B;
-    border-radius: 10px;
+    background-color: #0E1117;
+    border: 1px solid #FF4B4B;
+    border-radius: 10px;
 }
 
-/* Style for individual options in the list */
 [data-baseweb="popover"] ul li {
-    color: white;
-    transition: background-color 0.2s ease-in-out;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
 }
 
-/* Style for when you hover over an option */
 [data-baseweb="popover"] ul li:hover {
-    background-color: #283046;           /* Use your secondary background color */
+    background-color: #283046;
 }
