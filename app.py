@@ -5,7 +5,7 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import requests
 from streamlit_lottie import st_lottie
-import base64 # <-- Make sure this import is here
+import base64 # Required for encoding the video
 
 # --- 1. AESTHETICS & HELPERS ---
 
@@ -15,26 +15,33 @@ def get_base64_of_bin_file(bin_file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-def set_bg_from_local(file_path):
+def set_video_background(file_path):
     """
-    Sets the background of the Streamlit app to a local image encoded in Base64.
+    Sets a video as the background of the Streamlit app.
     """
     bin_str = get_base64_of_bin_file(file_path)
-    page_bg_img = f"""
+    
+    video_html = f"""
     <style>
-    [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/gif;base64,{bin_str}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+    .stApp {{
+        background: none; /* Required to see the video */
     }}
-    [data-testid="stHeader"] {{
-        background: rgba(0,0,0,0);
+    #bg-video {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1; /* Pushes video to the background */
     }}
     </style>
+    <video id="bg-video" autoplay loop muted>
+        <source src="data:video/mp4;base64,{bin_str}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    st.markdown(video_html, unsafe_allow_html=True)
 
 def local_css(file_name):
     with open(file_name) as f:
@@ -54,10 +61,9 @@ st.set_page_config(
 
 # --- APPLY AESTHETICS ---
 
-# This uses the local file and is the most reliable method
-set_bg_from_local("assets/P1.gif")
+# Use the new MP4 file for the background
+set_video_background("assets/comr.mp4")
 
-# Load your other styles
 local_css("assets/style.css")
 
 # --- 2. DATA LOADING AND MODEL TRAINING ---
@@ -140,6 +146,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
