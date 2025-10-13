@@ -85,6 +85,29 @@ h1 {
     color: white;
 }
 /* ================================
+   Dropdown Menu (Option List) Styling
+   ================================ */
+
+/* Targets the dropdown menu's container */
+div[data-baseweb="popover"] ul {
+    background-color: #0E1117; /* A solid, dark background */
+    border: 1px solid #FF4B4B;   /* A red border to match the theme */
+    padding: 0;                  /* Remove default padding */
+}
+
+/* Targets each individual option in the dropdown */
+div[data-baseweb="popover"] ul li {
+    color: #FAFAFA;             /* Bright white text for options */
+    padding: 8px 12px;         /* Add some spacing */
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Adds a hover effect for better UX */
+div[data-baseweb="popover"] ul li:hover {
+    background-color: #FF4B4B; /* Highlight option with your theme's accent color */
+    color: white;              /* Ensure text remains white on hover */
+}
+/* ================================
    Disclaimer & Alert Box Styling
    ================================ */
 
