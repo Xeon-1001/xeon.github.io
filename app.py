@@ -18,14 +18,12 @@ def get_base64_of_bin_file(bin_file):
 def set_video_background(file_path):
     """
     Sets a video as the background of the Streamlit app.
+    This version includes a fix to ensure the sidebar is always visible.
     """
     bin_str = get_base64_of_bin_file(file_path)
     
     video_html = f"""
     <style>
-    .stApp {{
-        background: none; /* Required to see the video */
-    }}
     #bg-video {{
         position: fixed;
         top: 0;
@@ -34,6 +32,13 @@ def set_video_background(file_path):
         height: 100vh;
         object-fit: cover;
         z-index: -1; /* Pushes video to the background */
+    }}
+
+    /* New CSS to ensure Streamlit's content is on top */
+    .stApp {{
+        background: rgba(0,0,0,0); /* Make background transparent */
+        position: relative; /* Create a stacking context */
+        z-index: 1; /* Ensure it's above the video */
     }}
     </style>
     <video id="bg-video" autoplay loop muted>
@@ -146,6 +151,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
