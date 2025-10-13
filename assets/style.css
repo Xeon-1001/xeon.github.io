@@ -71,14 +71,14 @@ body {
 h1 {
     text-align: center;
     color: #ffffff;
-    text-shadow: 
+   /* text-shadow: 
         0 0 5px #ffffff,
         0 0 10px #ffffff,
         0 0 20px #ff4b4b,
         0 0 30px #ff4b4b,
         0 0 40px #ff4b4b,
         0 0 55px #ff4b4b,
-        0 0 75px #ff4b4b;
+        0 0 75px #ff4b4b;*/
 }
 
 /* ================================
