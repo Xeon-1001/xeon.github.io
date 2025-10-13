@@ -3,6 +3,10 @@
 
 /* Make the sidebar feel more modern */
 /* Add this to force content to the top */
+[data-testid="stHeader"] {
+    display: none !important;
+}
+
 [data-testid="stAppViewContainer"] > .main {
     justify-content: flex-start;
 }
