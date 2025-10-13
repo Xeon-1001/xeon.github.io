@@ -18,7 +18,7 @@ body {
 
 /* Hide Streamlit’s default header */
 [data-testid="stHeader"] {
-    display: none !important;
+    background-color: transparent !important;
 }
 /* ================================
    Sidebar Styling
@@ -33,9 +33,9 @@ body {
     /* Force the sidebar to create a new stacking context and sit on top */
     position: relative; 
     z-index: 10;
-    min-width: 320px;
+    /*min-width: 320px;
     transform: translateX(0) !important;
-    transition: transform 300ms ease-in-out 0s, min-width 300ms ease-in-out 0s;
+    transition: transform 300ms ease-in-out 0s, min-width 300ms ease-in-out 0s;*/
 }
 /* ================================
    Selected Item Display Styling
