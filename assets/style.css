@@ -34,6 +34,9 @@ body {
   border-right: 2px solid #FF4B4B;
   backdrop-filter: blur(10px); /* adds a frosted-glass effect */
   box-shadow: 2px 0 20px rgba(255, 75, 75, 0.25); /* soft glow on edge */
+  
+  /* --- ADD THIS LINE --- */
+  z-index: 1; /* This forces the sidebar to a higher layer */
 }
 
 /* ================================
