@@ -69,3 +69,7 @@ h1 {
 [data-baseweb="popover"] ul li:hover {
     background-color: #283046;           /* Use your secondary background color */
 }
+/* Fix for invisible selected text in the dropdown */
+[data-testid="stSelectbox"] p {
+    color: white;
+}
