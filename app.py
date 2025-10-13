@@ -6,7 +6,20 @@ import numpy as np
 import requests
 from streamlit_lottie import st_lottie
 import base64
+import os
+# --- TEMPORARY DEBUGGING ---
+st.write("--- App Reloaded ---")
+st.write(f"Current Working Directory: {os.getcwd()}")
 
+assets_path = "assets"
+st.write(f"Checking for 'assets' folder: {os.path.exists(assets_path)}")
+
+if os.path.exists(assets_path):
+    st.write(f"Contents of 'assets' folder: {os.listdir(assets_path)}")
+
+image_file_path = "assets/P1.gif"
+st.write(f"Checking for image file at '{image_file_path}': {os.path.exists(image_file_path)}")
+st.write("--------------------")
 # --- 1. AESTHETICS & HELPERS ---
 def local_css(file_name):
     with open(file_name) as f:
@@ -138,6 +151,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
