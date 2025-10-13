@@ -24,7 +24,7 @@ def set_bg_from_url(url):
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("{url}")!important;
+        background-image: url("{url}") !important;
         background-size: cover;
         background-position: top left;
         background-repeat: no-repeat;
@@ -38,8 +38,7 @@ def set_bg_from_url(url):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# --- PAGE CONFIGURATION ---
-# This MUST be the first Streamlit command
+
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
@@ -47,7 +46,7 @@ st.set_page_config(
 )
 
 # --- APPLY AESTHETICS ---
-# Call the functions to set background and CSS AFTER page config
+
 gif_url = "https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif"
 set_bg_from_url(gif_url)
 local_css("assets/style.css")
@@ -133,4 +132,5 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
