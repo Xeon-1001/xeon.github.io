@@ -52,7 +52,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 st.set_page_config(
-    page_title="Drug Recommendation DSS",
+    page_title="Drug Recommendation DSS-prototype",
     page_icon="💊",
     layout="wide"
 )
@@ -60,7 +60,7 @@ st.set_page_config(
 # --- APPLY AESTHETICS ---
 
 # Use the new MP4 file for the background
-set_video_background("assets/comr.mp4")
+set_video_background("assets/P3.mp4")
 
 local_css("assets/style.css")
 
@@ -144,6 +144,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
