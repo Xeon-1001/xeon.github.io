@@ -5,24 +5,25 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import requests
 from streamlit_lottie import st_lottie
+import base64 # <-- Make sure this import is here
 
 # --- 1. AESTHETICS & HELPERS ---
 
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+@st.cache_data
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-    
-def set_bg_from_url(url):
+def set_bg_from_local(file_path):
+    """
+    Sets the background of the Streamlit app to a local image encoded in Base64.
+    """
+    bin_str = get_base64_of_bin_file(file_path)
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("{url}");
+        background-image: url("data:image/gif;base64,{bin_str}");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -35,20 +36,28 @@ def set_bg_from_url(url):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
-    layout="wide"  
+    layout="wide"
 )
 
 # --- APPLY AESTHETICS ---
 
-# Using the direct raw URL from your GitHub repository
-gif_url = "https://raw.githubusercontent.com/Xeon-1001/xeon.github.io/main/assets/P1.gif"
-set_bg_from_url(gif_url)
+# This uses the local file and is the most reliable method
+set_bg_from_local("assets/P1.gif")
 
-# Load your local CSS for button styles
+# Load your other styles
 local_css("assets/style.css")
 
 # --- 2. DATA LOADING AND MODEL TRAINING ---
@@ -131,6 +140,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
