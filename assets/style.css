@@ -17,10 +17,11 @@ body {
 }
 
 /* Hide Streamlit’s default header */
+/*
 [data-testid="stHeader"] {
     display: none !important;
 }
-
+*/
 /* ================================
    Sidebar Styling
    ================================ */
