@@ -1,4 +1,4 @@
-/* assets/style.css - FINAL CORRECTED VERSION */
+/* assets/style.css - FINAL VERSION */
 
 /* --- CORE LAYOUT --- */
 [data-testid="stHeader"] {
@@ -9,11 +9,25 @@
     justify-content: flex-start;
 }
 
-[data-testid="stSidebar"] {
-    /* Use a dark, semi-transparent background to keep the expand button visible */
+
+/* --- SIDEBAR STYLING (EXPANDED & COLLAPSED) --- */
+
+/* Style for the sidebar when it's EXPANDED */
+section[data-testid="stSidebar"][aria-expanded="true"] {
+    width: 304px !important; /* Keep a consistent width */
+    min-width: 304px !important;
     background-color: rgba(14, 17, 23, 0.85);
     border-right: 2px solid #FF4B4B;
 }
+
+/* Style for the sidebar when it's COLLAPSED */
+section[data-testid="stSidebar"][aria-expanded="false"] {
+    width: 48px !important; /* Give it a small width to show the button */
+    min-width: 48px !important;
+    background-color: rgba(14, 17, 23, 0.85);
+    border-right: 2px solid #FF4B4B;
+}
+
 
 /* --- WIDGETS --- */
 .stButton > button {
@@ -37,6 +51,7 @@ h1 {
   text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
 }
 
+
 /* --- DROPDOWN (SELECTBOX) STYLES --- */
 [data-testid="stSelectbox"] > div {
     background-color: rgba(0, 0, 0, 0.3);
@@ -48,7 +63,6 @@ h1 {
     fill: #FF4B4B;
 }
 
-/* This rule makes the selected text visible */
 [data-testid="stSelectbox"] p {
     color: white !important;
 }
