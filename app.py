@@ -16,6 +16,29 @@ def load_lottieurl(url: str):
     if r.status_code != 200:
         return None
     return r.json()
+    
+def set_bg_from_url(url):
+    """
+    Sets the background of the Streamlit app to an image from a URL.
+    """
+    page_bg_img = f"""
+    <style>
+    [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("{url}");
+        background-size: cover;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+    /* This makes the header transparent */
+    [data-testid="stHeader"] {{
+        background: rgba(0,0,0,0);
+    }}
+    </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+gif_url = "https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif"
+set_bg_from_url(gif_url)
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
@@ -106,6 +129,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
