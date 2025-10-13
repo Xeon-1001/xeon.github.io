@@ -24,7 +24,7 @@ def set_bg_from_url(url):
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("{url}");
+        background-image: url("{url}")!important;
         background-size: cover;
         background-position: top left;
         background-repeat: no-repeat;
@@ -133,3 +133,4 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
