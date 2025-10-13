@@ -20,7 +20,9 @@ if os.path.exists(assets_path):
 image_file_path = "assets/P1.gif"
 st.write(f"Checking for image file at '{image_file_path}': {os.path.exists(image_file_path)}")
 st.write("--------------------")
+
 # --- 1. AESTHETICS & HELPERS ---
+
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -31,23 +33,16 @@ def load_lottieurl(url: str):
         return None
     return r.json()
     
-@st.cache_data
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-def set_bg_from_local(file_path):
+def set_bg_from_url(url):
     """
-    Sets the background of the Streamlit app to a local image.
+    Sets the background of the Streamlit app to an image from a URL.
     """
-    bin_str = get_base64_of_bin_file(file_path)
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/gif;base64,{bin_str}") !important;
+        background-image: url("{url}");
         background-size: cover;
-        background-position: top left;
+        background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
@@ -58,7 +53,6 @@ def set_bg_from_local(file_path):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
@@ -67,9 +61,12 @@ st.set_page_config(
 
 # --- APPLY AESTHETICS ---
 
-set_bg_from_local("assets/P1.gif")
-local_css("assets/style.css")
+# Using the direct raw URL from your GitHub repository
+gif_url = "https://raw.githubusercontent.com/Xeon-1001/xeon.github.io/main/assets/P1.gif"
+set_bg_from_url(gif_url)
 
+# Load your local CSS for button styles and title alignment
+local_css("assets/style.css")
 
 # --- 2. DATA LOADING AND MODEL TRAINING ---
 @st.cache_data
@@ -151,6 +148,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
