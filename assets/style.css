@@ -1,43 +1,39 @@
 /* assets/style.css */
 
 /* ================================
-   Global Styles
+   Global Layout & Background
    ================================ */
 
-/* Add a subtle gradient to the background */
-body {
-  background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
-  color: white;
-  font-family: "Poppins", "Segoe UI", sans-serif;
+/* Make the entire app container transparent to let the video show through */
+.stApp {
+    background: transparent;
 }
 
-/* ================================
-   Streamlit Layout Adjustments
-   ================================ */
+body {
+    /* Fallback color if the video fails to load */
+    background: #1e1e1e; 
+    color: white;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
 
 /* Hide Streamlit’s default header */
 [data-testid="stHeader"] {
-  display: none !important;
-}
-
-/* Force main content to stay at the top */
-[data-testid="stAppViewContainer"] > .main {
-  justify-content: flex-start;
+    display: none !important;
 }
 
 /* ================================
    Sidebar Styling
    ================================ */
 
+/* This is the key fix: Force the sidebar to a higher layer */
 [data-testid="stSidebar"] {
-  background-color: #0E1117; /* Streamlit's default dark background color */
-  
-  border-right: 2px solid #FF4B4B;
-  box-shadow: 2px 0 20px rgba(255, 75, 75, 0.25);
+    background-color: #0E1117; /* Opaque background */
+    border-right: 2px solid #FF4B4B;
+    box-shadow: 2px 0 20px rgba(255, 75, 75, 0.25);
 
-  
-  /* --- ADD THIS LINE --- */
-  z-index: 1; /* This forces the sidebar to a higher layer */
+    /* Force the sidebar to create a new stacking context and sit on top */
+    position: relative; 
+    z-index: 10;
 }
 
 /* ================================
@@ -45,18 +41,18 @@ body {
    ================================ */
 
 .stButton > button {
-  background-color: #ff4b4b;
-  color: white;
-  border-radius: 25px;
-  border: 1px solid #ff4b4b;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
+    background-color: #ff4b4b;
+    color: white;
+    border-radius: 25px;
+    border: 1px solid #ff4b4b;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
 }
 
 .stButton > button:hover {
-  transform: translateY(-3px); /* Lift effect on hover */
-  box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
 }
 
 /* ================================
@@ -64,16 +60,16 @@ body {
    ================================ */
 
 h1 {
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 
-    0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ff4b4b,
-    0 0 30px #ff4b4b,
-    0 0 40px #ff4b4b,
-    0 0 55px #ff4b4b,
-    0 0 75px #ff4b4b;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px #ff4b4b,
+        0 0 30px #ff4b4b,
+        0 0 40px #ff4b4b,
+        0 0 55px #ff4b4b,
+        0 0 75px #ff4b4b;
 }
 
 /* ================================
@@ -81,8 +77,8 @@ h1 {
    ================================ */
 
 [data-testid="stSelectbox"] > div {
-  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-  border: 1px solid #ff4b4b;             /* Glowing red border */
-  border-radius: 10px;                   /* Rounded corners */
-  color: white;                          /* Text color */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #ff4b4b;
+    border-radius: 10px;
+    color: white;
 }
