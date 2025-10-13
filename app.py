@@ -43,7 +43,7 @@ def load_and_train_model():
 model, encoder, symptom_list, condition_list = load_and_train_model()
 
 # --- 3. USER INTERFACE ---
-st.title('Symptom-Based Drug Recommendation DSS')
+st.title('Drug Recommendation DSS')
 
 # --- SIDEBAR ---
 with st.sidebar:
@@ -106,6 +106,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
