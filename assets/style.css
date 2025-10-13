@@ -1,8 +1,5 @@
 /* assets/style.css */
 /* Add a subtle gradient to the background */
-body {
-    background-image: linear-gradient(to right top, #051937, #001c4a, #001e5d, #002071, #002085);
-}
 
 /* Make the sidebar feel more modern */
 [data-testid="stSidebar"] {
