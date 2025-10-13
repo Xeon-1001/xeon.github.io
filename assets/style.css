@@ -8,16 +8,9 @@
 [data-testid="stAppViewContainer"] > .main {
     justify-content: flex-start;
 }
-/* --- AGGRESSIVE SIDEBAR FIX --- */
-[data-testid="stSidebar"] {
-    /* Force visibility */
-    display: block !important;
-    visibility: visible !important;
-    position: relative !important; /* Prevents it from being pushed off-screen */
-    width: 304px !important;      /* Streamlit's default width */
-    min-width: 304px !important;
 
-    /* Your original styling */
+[data-testid="stSidebar"] {
+    /* Use a dark, semi-transparent background to keep the expand button visible */
     background-color: rgba(14, 17, 23, 0.85);
     border-right: 2px solid #FF4B4B;
 }
