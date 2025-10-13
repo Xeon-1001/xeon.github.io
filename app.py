@@ -49,7 +49,7 @@ st.set_page_config(
 
 gif_url = "https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif"
 set_bg_from_url(gif_url)
-local_css("assets/style.css")
+# local_css("assets/style.css")
 
 
 # --- 2. DATA LOADING AND MODEL TRAINING ---
@@ -132,5 +132,6 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
