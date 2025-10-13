@@ -16,9 +16,9 @@ body {
     font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* Hide Streamlit’s default header */
+/* Hide Streamlit’s default header 
 [data-testid="stHeader"] {
-    display: none !important;
+    display: none !important;*/
 }
 /* ================================
    Sidebar Styling
