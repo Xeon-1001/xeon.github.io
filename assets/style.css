@@ -38,3 +38,34 @@ h1 {
   color: #FFFFFF;
   text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
 }
+
+/* Style for the main dropdown box */
+[data-testid="stSelectbox"] > div {
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    border: 1px solid #FF4B4B;           /* Glowing border */
+    border-radius: 10px;                   /* Rounded corners */
+    color: white;                          /* Text color */
+}
+
+/* Change color of the dropdown arrow */
+[data-testid="stSelectbox"] svg {
+    fill: #FF4B4B;
+}
+
+/* Style for the popup menu that appears on click */
+[data-baseweb="popover"] ul {
+    background-color: #0E1117;           /* Match your app's background */
+    border: 1px solid #FF4B4B;
+    border-radius: 10px;
+}
+
+/* Style for individual options in the list */
+[data-baseweb="popover"] ul li {
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Style for when you hover over an option */
+[data-baseweb="popover"] ul li:hover {
+    background-color: #283046;           /* Use your secondary background color */
+}
