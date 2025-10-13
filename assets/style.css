@@ -30,7 +30,7 @@ body {
    ================================ */
 
 [data-testid="stSidebar"] {
-  background-color: rgba(0, 0, 0, 0); /* Transparent look */
+  background-color: rgba(0, 0, 0, 0.8); /* Transparent look */
   border-right: 2px solid #ff4b4b;
 }
 
