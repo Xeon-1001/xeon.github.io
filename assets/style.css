@@ -1,83 +1,82 @@
-/* assets/style.css - FINAL VERSION */
+/* assets/style.css */
 
-/* --- CORE LAYOUT --- */
+/* ================================
+   Global Styles
+   ================================ */
+
+/* Add a subtle gradient to the background */
+body {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
+  color: white;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* ================================
+   Streamlit Layout Adjustments
+   ================================ */
+
+/* Hide Streamlit’s default header */
 [data-testid="stHeader"] {
-    display: none !important;
+  display: none !important;
 }
 
+/* Force main content to stay at the top */
 [data-testid="stAppViewContainer"] > .main {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
+/* ================================
+   Sidebar Styling
+   ================================ */
 
-/* --- SIDEBAR STYLING (EXPANDED & COLLAPSED) --- */
-
-/* Style for the sidebar when it's EXPANDED */
-section[data-testid="stSidebar"][aria-expanded="true"] {
-    width: 304px !important; /* Keep a consistent width */
-    min-width: 304px !important;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-right: 2px solid #FF4B4B;
+[data-testid="stSidebar"] {
+  background-color: rgba(0, 0, 0, 0); /* Transparent look */
+  border-right: 2px solid #ff4b4b;
 }
 
-/* Style for the sidebar when it's COLLAPSED */
-section[data-testid="stSidebar"][aria-expanded="false"] {
-    width: 48px !important; /* Give it a small width to show the button */
-    min-width: 48px !important;
-    background-color: rgba(14, 17, 23, 0.85);
-    border-right: 2px solid #FF4B4B;
-}
+/* ================================
+   Button Styling
+   ================================ */
 
-
-/* --- WIDGETS --- */
 .stButton > button {
-    background-color: #FF4B4B;
-    color: white;
-    border-radius: 25px;
-    border: 1px solid #FF4B4B;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
+  background-color: #ff4b4b;
+  color: white;
+  border-radius: 25px;
+  border: 1px solid #ff4b4b;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(255, 75, 75, 0.5);
 }
 
 .stButton > button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px 0 rgba(255, 75, 75, 0.7);
 }
+
+/* ================================
+   Title (h1) Glow Effect
+   ================================ */
 
 h1 {
   text-align: center;
-  color: #FFFFFF;
-  text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #FF4B4B, 0 0 30px #FF4B4B, 0 0 40px #FF4B4B, 0 0 55px #FF4B4B, 0 0 75px #FF4B4B;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ff4b4b,
+    0 0 30px #ff4b4b,
+    0 0 40px #ff4b4b,
+    0 0 55px #ff4b4b,
+    0 0 75px #ff4b4b;
 }
 
+/* ================================
+   Dropdown Box Styling
+   ================================ */
 
-/* --- DROPDOWN (SELECTBOX) STYLES --- */
 [data-testid="stSelectbox"] > div {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #FF4B4B;
-    border-radius: 10px;
-}
-
-[data-testid="stSelectbox"] svg {
-    fill: #FF4B4B;
-}
-
-[data-testid="stSelectbox"] p {
-    color: white !important;
-}
-
-[data-baseweb="popover"] ul {
-    background-color: #0E1117;
-    border: 1px solid #FF4B4B;
-    border-radius: 10px;
-}
-
-[data-baseweb="popover"] ul li {
-    color: white;
-    transition: background-color 0.2s ease-in-out;
-}
-
-[data-baseweb="popover"] ul li:hover {
-    background-color: #283046;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+  border: 1px solid #ff4b4b;             /* Glowing red border */
+  border-radius: 10px;                   /* Rounded corners */
+  color: white;                          /* Text color */
 }
