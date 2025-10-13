@@ -5,21 +5,6 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import requests
 from streamlit_lottie import st_lottie
-import base64
-import os
-# --- TEMPORARY DEBUGGING ---
-st.write("--- App Reloaded ---")
-st.write(f"Current Working Directory: {os.getcwd()}")
-
-assets_path = "assets"
-st.write(f"Checking for 'assets' folder: {os.path.exists(assets_path)}")
-
-if os.path.exists(assets_path):
-    st.write(f"Contents of 'assets' folder: {os.listdir(assets_path)}")
-
-image_file_path = "assets/P1.gif"
-st.write(f"Checking for image file at '{image_file_path}': {os.path.exists(image_file_path)}")
-st.write("--------------------")
 
 # --- 1. AESTHETICS & HELPERS ---
 
@@ -34,9 +19,6 @@ def load_lottieurl(url: str):
     return r.json()
     
 def set_bg_from_url(url):
-    """
-    Sets the background of the Streamlit app to an image from a URL.
-    """
     page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
@@ -53,10 +35,11 @@ def set_bg_from_url(url):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+
 st.set_page_config(
     page_title="Drug Recommendation DSS",
     page_icon="💊",
-    layout="centered"
+    layout="wide"  
 )
 
 # --- APPLY AESTHETICS ---
@@ -65,7 +48,7 @@ st.set_page_config(
 gif_url = "https://raw.githubusercontent.com/Xeon-1001/xeon.github.io/main/assets/P1.gif"
 set_bg_from_url(gif_url)
 
-# Load your local CSS for button styles and title alignment
+# Load your local CSS for button styles
 local_css("assets/style.css")
 
 # --- 2. DATA LOADING AND MODEL TRAINING ---
@@ -148,6 +131,7 @@ if recommend_button:
         st.warning("This is a prototype DSS. Dont let em docs run outta jobs.")
 else:
     st.info("Please enter your details in the sidebar and click 'Get Recommendation'.")
+
 
 
 
